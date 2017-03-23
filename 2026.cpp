@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #define REP(i,a,n) for(int i = a; i<n; i++)
-#define MAXP 101
-#define MAXW 1001
+#define MAXP 102
+#define MAXW 1002
 #define pb push_back
 
 using namespace std;
@@ -10,7 +10,7 @@ typedef vector<int> vi;
 int dp[MAXP][MAXW];
 vi pes(MAXP);
 vi es(MAXP);
-int peso,p,w;
+int peso,p;
 
 int solve(int i,int w)
 {
@@ -18,7 +18,7 @@ int solve(int i,int w)
         return 0;
     if(dp[i][w]!=-1)
         return dp[i][w];
-    int res = 0;
+    int res = -1;
     if(pes[i]>w)
         res = solve(i+1,w);
     else
@@ -26,9 +26,9 @@ int solve(int i,int w)
     return dp[i][w] = res;
 }
 
-void llenar(int p){
-    REP(i,0,p){
-        REP(j,0,w){
+void llenar(int p,int w){
+    REP(i,0,p+1){
+        REP(j,0,w+1){
             dp[i][j]=-1;
         }
     }
@@ -36,13 +36,13 @@ void llenar(int p){
 
 int main()
 {
-    int casos,ramas,peso,e;
+    int casos,ramas,e,w;
     scanf("%d",&casos);
 
     REP(i,0,casos)
     {
         scanf("%d %d",&p,&peso);
-        llenar(p);
+        llenar(p,peso);
         REP(j,0,p)
         {
             scanf("%d %d",&e,&w);
