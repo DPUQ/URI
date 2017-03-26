@@ -2,7 +2,6 @@
 #define e end()
 #define b begin()
 #define f find
-#define pb push_back
 #define cl clear()
 #define s size()
 #define en "\n"
@@ -10,7 +9,6 @@
 
 using namespace std;
 typedef string st;
-typedef vector<st> vs;
 typedef long long ll;
 typedef map<st,ll> msl;
 
