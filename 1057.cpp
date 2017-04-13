@@ -30,10 +30,6 @@ struct state
 
     }
 
-    bool operator!=( const state& i)
-    {
-        return !(i.cA == cA && i.cB==cB && i.cC == cC);
-    }
 };
 
 typedef queue<state> qii;
@@ -122,7 +118,7 @@ void bfs()
                 else enc.cC = curr.cC;
 
                 enc.val = curr.val + 1;
-                if(validar(enc)) cola.push(enc); /*cout << "enqueued\n";*/
+                if(validar(enc)) cola.push(enc);
             }
         }
     }
